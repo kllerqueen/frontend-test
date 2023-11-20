@@ -1,11 +1,259 @@
+@font-face {
+  font-family: avenir-regular;
+  src: url("./public/avenir-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: avenir-demibold;
+  src: url("./public/avenir-demibold.woff2") format("woff2");
+}
+
 .App {
-  font-family: sans-serif;
-  text-align: center;
-  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  padding: 10px 20px 0 20px;
+}
+
+.cardContainer {
+  width: 544px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 4px 0;
+  border-radius: 4px;
+  position: relative;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.arrows::before,
+.arrows::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 99%;
+  background: linear-gradient(
+    to right,
+    rgba(82, 82, 82, 0.233),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 1;
+}
+
+.arrows::after {
+  left: auto;
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(82, 82, 82, 0.233),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.arrows:hover::before {
+  width: 25%;
+}
+
+.arrows:hover::after {
+  width: 25%;
 }
 
 .mainPic {
+  height: 272px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
 }
 
-.mainContent {
+.mainPic::after {
+  content: "Test";
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  transition: opacity ease-out 0.25s;
+  z-index: 1;
+}
+
+.flag {
+  width: 133px;
+  position: absolute;
+  margin: 6px 0 0 0;
+  left: 0;
+}
+
+.flair {
+  font-family: "avenir-demibold", sans-serif;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  left: 415px;
+  color: white;
+  background-color: #ff72b6;
+  font-weight: 600;
+  padding: 4px;
+  height: 5%;
+}
+
+.arrows {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  align-items: center;
+}
+
+.arrows .arrow {
+  font-family: "avenir-regular", sans-serif;
+  font-size: 30px;
+  top: 0;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  padding: 0 15px;
+  z-index: 10;
+}
+
+.arrows:hover .arrow {
+  opacity: 1;
+}
+
+.arrows .arrow:first-child {
+  left: 15px;
+}
+
+.arrows .arrow:last-child {
+  left: 500px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  text-align: right;
+}
+
+.fade-in {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  font-family: "avenir-regular", sans-serif;
+}
+
+.fade-out {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  font-family: "avenir-regular", sans-serif;
+}
+
+.buildingInfo {
+  display: flex;
+  align-items: center;
+}
+
+.buildingInfo img {
+  width: 40px;
+  margin: 10px 15px 0 0;
+}
+
+.buildingPrice {
+  text-align: right;
+}
+
+.descButton {
+  background: transparent;
+  border: none;
+  color: #216bff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 15px 0 15px 0;
+}
+
+.title {
+  font-family: "avenir-demibold", sans-serif;
+  font-weight: 600;
+  color: #1a2258;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.subTitle {
+  font-family: "avenir-regular", sans-serif;
+  font-weight: 400;
+  color: #787d9c;
+  font-size: 14px;
+}
+
+.additionalInfo .typeInfo:first-child {
+  margin-bottom: 0px;
+}
+
+.additionalInfo .typeInfo:last-child {
+  margin-top: 0px;
+}
+
+.typeInfo {
+  font-family: "avenir-regular", sans-serif;
+  font-weight: 400;
+  color: #1a2258;
+  font-size: 16px;
+}
+
+.phoneNum {
+  cursor: pointer;
+}
+
+.descText {
+  text-align: center;
+}
+
+@media only screen and (max-width: 343px) {
+  .grid {
+    flex-direction: column;
+  }
+
+  .buildingPrice {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .subTitle {
+    font-size: 12px;
+  }
+
+  .typeInfo {
+    font-size: 14px;
+  }
+
+  .buildingInfo img {
+    margin: 10px 15px 0 0;
+  }
+
+  .descButton {
+    font-size: 14px;
+  }
+
+  .descText {
+    font-size: 14px;
+  }
 }
